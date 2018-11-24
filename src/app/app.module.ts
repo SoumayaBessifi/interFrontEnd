@@ -8,11 +8,19 @@ import { AjoutOrdinateurComponent } from './ordinateur/ajout-ordinateur/ajout-or
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {OrdiserviceService} from './Service/ordiservice.service';
+import { RouteurComponent } from './routeur/routeur.component';
+import { AjoutRouteurComponent } from './routeur/ajout-routeur/ajout-routeur.component';
+import { ImprimanteComponent } from './imprimante/imprimante.component';
+import { AjoutimprimanteComponent } from './imprimante/ajoutimprimante/ajoutimprimante.component';
 @NgModule({
   declarations: [
     AppComponent,
     OrdinateurComponent,
     AjoutOrdinateurComponent,
+    RouteurComponent,
+    AjoutRouteurComponent,
+    ImprimanteComponent,
+    AjoutimprimanteComponent,
   ],
   imports: [
     BrowserModule,

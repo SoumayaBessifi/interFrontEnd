@@ -13,3 +13,12 @@
 div.panel.panel-default{  width: 100%;
 }
 */
+.table.table-striped{
+  margin-top: 7%;
+}
+.form-check-inline {
+  display: inline-flex;
+  align-items: center;
+  padding-left: 11px;
+  margin-right: .75rem;
+}

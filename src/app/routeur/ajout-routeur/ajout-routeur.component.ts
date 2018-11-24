@@ -3,33 +3,29 @@ import {NgForm} from '@angular/forms';
 import {OrdiserviceService} from '../../Service/ordiservice.service';
 
 @Component({
-  selector: 'app-ajout-ordinateur',
-  templateUrl: './ajout-ordinateur.component.html',
-  styleUrls: ['./ajout-ordinateur.component.css']
+  selector: 'app-ajout-routeur',
+  templateUrl: './ajout-routeur.component.html',
+  styleUrls: ['./ajout-routeur.component.css']
 })
-export class AjoutOrdinateurComponent implements OnInit {
-  ordinateur: Ordinateur;
+export class AjoutRouteurComponent implements OnInit {
+  routeur: Routeur;
 
   constructor(private ordiservice: OrdiserviceService) {
   }
 
   ngOnInit() {
-    this.ordinateur = {
-      type: '',
+    this.routeur = {
       numserie: '',
       marque: '',
-      processeur: '',
-      memoire: '',
-      nbrecran: 0,
-      fingarantie: new Date()
+      type: '',
+      deffectueux: false,
+      datemisenservice: new Date(),
     };
   }
-
   submit(form: NgForm) {
-    console.log(form.value);
+    console.log(form.submitted);
     this.ordiservice.create(form.value).subscribe((data) => {
       console.log(data);
     });
   }
-
 }

@@ -1,8 +1,9 @@
 interface Utilisateurs {
-  nom: String;
-  prenom: String;
-  matricule: Number;
-  email: String;
-  mdp: String;
-  departement: String;
+  idUtilisateur?: Number;
+  nom?: String;
+  prenom?: String;
+  matricule?: Number;
+  email?: String;
+  mdp?: String;
+  departement?: String;
 }

@@ -1,104 +1,137 @@
-<form #form="ngForm" (submit)="submit(form)">
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="numserie">Numéro de serie</label>
-      <input type="text" name="numserie"
-             class="form-control" id="numserie" name="numserie"
-             [(ngModel)]="ordinateur.numserie" placeholder="Num serie">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="marque">Marque</label>
-      <input type="text" class="form-control"name="numserie"
-             [(ngModel)]="ordinateur.marque" id="marque" placeholder="marque">
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="datemoe">date mise en oeuvre</label>
-      <input type="date" class="form-control" name="datemoe"
-             [(ngModel)]="ordinateur.datemisenservice" id="datemoe" placeholder="date mise en oeuvre">
-    </div>
-
-    <div class="form-group col-md-6">
-      <label for="fin">fin garantie</label>
-      <input type="date" class="form-control" name="fin"
-             [(ngModel)]="ordinateur.fingarantie"id="fin">
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="utilisateur">Utilisateur</label>
-      <input type="text" class="form-control" name="utilisateur"
-             [(ngModel)]="ordinateur.utilisateur" id="utilisateur" placeholder="Nom et prenom">
-    </div>
-<!--
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="memoire">Memoire</label>
-      <input type="text" class="form-control" id="memoire" placeholder="Memoire">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="processeur">Processeur</label>
-      <input type="text" class="form-control" id="processeur">
-    </div>-->
-  </div>
-  <button type="submit" class="btn btn-primary">Enregistrer</button>
-  <button type="reset" class="btn btn-warning">Reset</button>
-</form>
-
-<!--
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-<!--
+
 <div class="container">
-  <div class="row centered-form" style="width: 100%">
-    <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Ajouter Ordinateur </h3>
-        </div>
-        <div class="panel-body">
-          <form role="form">
-            <div class="row">
-              <div class="col-xs-6 col-sm-6 col-md-6">
-                <div class="form-group">
-                  <input type="text" name="first_name" id="first_name" class="form-control input-sm" placeholder="First Name">
+  <table class="table table-striped">
+    <tbody>
+    <tr>
+      <td colspan="1">
+        <form class="well form-horizontal" #form="ngForm" (submit)="submit(form)" novalidate>
+          <fieldset>
+
+            <div class="form-group">
+              <label class="col-md-4 control-label">Numéro de serie</label>
+              <div class="col-md-8 inputGroupContainer">
+                <div class="input-group">
+                  <input id="numserie"
+                         [(ngModel)]="ordinateur.numserie" name="numserie"
+                         placeholder="Numero de serie" class="form-control" r
+                         equired="true" value="" type="text"></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-4 control-label">Marque</label>
+              <div class="col-md-8 inputGroupContainer">
+                <div class="input-group">
+                  <span class="input-group-addon" style="max-width: 100%;"><i class="glyphicon glyphicon-list"></i></span>
+                  <select id="marque" name="marque"   [(ngModel)]="ordinateur.marque" class="selectpicker form-control">
+                    <option value="Dell">Dell</option>
+                    <option value="Hp">Hp</option>
+                    <option value="Lenovo">Lenovo</option>
+                    <option value="Acer">Acer</option>
+                    <option value="Asus">Asus</option>
+                    <option value="Sony">Sony</option>
+                    <option value="Dell">Dell</option>
+                  </select>
+                </div>
+            </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-4 control-label">Type</label>
+              <div class="col-md-8 inputGroupContainer">
+                <div class="input-group">
+                  <span class="input-group-addon" style="max-width: 100%;"><i class="glyphicon glyphicon-list"></i></span>
+                  <select id="type" name="type"  [(ngModel)]="ordinateur.type" class="selectpicker form-control" required>
+                    <option value="Ordinateur"  selected>Ordinateur</option>
+                  </select>
                 </div>
               </div>
-
-              <div class="col-xs-6 col-sm-6 col-md-6">
-                <div class="form-group">
-                  <input type="text" name="last_name" id="last_name" class="form-control input-sm" placeholder="Last Name">
+            </div>
+            <div class="form-group">
+              <label class="col-md-4 control-label">Utilisateur</label>
+              <div class="col-md-8 inputGroupContainer">
+                <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                  <select id="utilisateur" name="utilisateur"   [(ngModel)]="ordinateur.utilisateur" class="form-control">
+                  </select>
                 </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-4 control-label">Processeur</label>
+              <div class="col-md-8 inputGroupContainer">
+                <div class="input-group">
+                  <span class="input-group-addon" style="max-width: 100%;"><i class="glyphicon glyphicon-list"></i></span>
+
+                  <select id="processeur" name="processeur"   [(ngModel)]="ordinateur.processeur" class="selectpicker form-control">
+                    <option value="intel core ">intel core</option>
+                    <option value="intel core i3">intel core i3</option>
+                    <option value="intel core i5">intel core i5</option>
+                    <option value="intel core i7">intel core i7</option>
+                    <option value="intel platium-Dual core">intel platium-Dual core</option>
+                    <option value="intel Xeon">intel Xeon</option>
+                  </select>
+                </div>
+              </div>
+              </div>
+            <div class="form-group">
+              <label class="col-md-4 control-label">Mémoire</label>
+              <div class="col-md-8 inputGroupContainer">
+                  <div class="input-group">
+                <span class="input-group-addon" style="max-width: 100%;"><i class="glyphicon glyphicon-list"></i></span>
+                <select id="memoire" name="memoire"   [(ngModel)]="ordinateur.memoire" class="selectpicker form-control">
+                      <option value="8 Go "> 8 Go</option>
+                      <option value="12 Go">12 Go</option>
+                      <option value="16 Go">16 Go</option>
+                      <option value="32 Go">32 Go</option>
+                    </select>
+                  </div>
               </div>
             </div>
 
             <div class="form-group">
-              <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address">
-            </div>
-
-            <div class="row">
-              <div class="col-xs-6 col-sm-6 col-md-6">
-                <div class="form-group">
-                  <input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password">
-                </div>
-              </div>
-              <div class="col-xs-6 col-sm-6 col-md-6">
-                <div class="form-group">
-                  <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password">
+              <label class="col-md-4 control-label">Système d'exploitation</label>
+              <div class="col-md-8 inputGroupContainer">
+                <div class="input-group">
+                  <span class="input-group-addon" style="max-width: 100%;"><i class="glyphicon glyphicon-list"></i></span>
+                  <select id="sysexp" name="sysexp"   [(ngModel)]="ordinateur.sysexp" class="selectpicker form-control">
+                    <option value="Linux">Linux</option>
+                    <option value="Windows">Windows</option>
+                    <option value="Ubuntu">Ubuntu</option>
+                  </select>
                 </div>
               </div>
             </div>
+            <div class="form-group">
+              <label class="col-md-4 control-label">Nombre écran</label>
+              <div class="col-md-8 inputGroupContainer">
+                <div class="input-group">
+                  <input id="nbrecran"
+                         [(ngModel)]="ordinateur.nbrecran" name="nbrecran"
+                         placeholder="Nombre ecran" class="form-control" required  type="number"></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-4 control-label">Garantie</label>
+              <div class="col-md-8 inputGroupContainer">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-date"></i></span>
+                  <input id="fingarantie" name="fingarantie" placeholder="Date fin Garantie" class="form-control"
+                         required  [(ngModel)]="ordinateur.fingarantie"  type="date"></div>
+              </div>
+            </div>
+          </fieldset>
+          <button type="submit" class="btn btn-primary">Enregistrer</button>
+          <button type="reset" class="btn btn-warning">Reset</button>
 
-            <input type="submit" value="Register" class="btn btn-info btn-block">
+        </form>
+      </td>
 
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
+    </tr>
+    </tbody>
+  </table>
+
 </div>
--->
+
+

@@ -2,17 +2,16 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
 
-<a class="nav-link" routerLink="/ajoutOrdi">Ajouter</a>
+<a class="nav-link text-right" routerLink="/ajoutOrdi">Ajouter Ordinateur</a>
   <div class=" row" style="margin-top: 170px">
 <div class="col-md-12">
   <div class="table-responsive">
     <table id="mytable" class="table table-bordred table-striped">
 
-      <thead style="text-align: center">
+      <thead style="text-align: center" >
       <th>Num serie</th>
       <th>Marque</th>
       <th>Utilisateur</th>
@@ -27,20 +26,18 @@
       </th>
       <th></th>
       </thead>
-      <tbody>
-
-      <tr>
-        <td>1</td>
-        <td>Mohsin</td>
-        <td>Irshad</td>
-        <td>+92333558</td>
-        <td>+92333558</td>
-        <td>+9233757</td>
-        <td>13/01/1998</td>
-
-        <td>15/01/1548</td>
-        <td>isometric.mohsin@gmail.com</td>
-        <td>Actif</td>
+      <tbody >
+      <tr *ngFor="let ordi of ordinateurs">
+        <td>{{ordi.numserie}}</td>
+        <td>{{ordi.marque}}</td>
+        <td>{{ordi.utilisateur}}</td>
+        <td>{{ordi.processeur}}</td>
+        <td>{{ordi.memoire}}</td>
+        <td>{{ordi.sysexp}}</td>
+        <td>{{ordi.datemiseservice}}</td>
+        <td>{{ordi.fingarantie}}</td>
+        <td>{{ordi.nbrecran}}</td>
+        <td>{{ordi.deffectueux}}</td>
         <td>
           <p data-placement="top" data-toggle="tooltip" title="Edit">
             <button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit"><span
@@ -60,5 +57,6 @@
 
     </table>
   </div>
-</div></div>
+</div>
+  </div>
 <router-outlet></router-outlet>
