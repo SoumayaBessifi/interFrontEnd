@@ -3,7 +3,10 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
+
+
 <div class="container">
+  <ngb-alert *ngIf="successMessage" type="success" (close)="successMessage = null">{{ successMessage }}</ngb-alert>
   <table class="table table-striped">
     <tbody>
     <tr>
@@ -51,8 +54,13 @@
               <label class="col-md-4 control-label">Utilisateur</label>
               <div class="col-md-8 inputGroupContainer">
                 <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                  <select id="utilisateur" name="utilisateur"   [(ngModel)]="routeur.utilisateur" class="form-control">
-                  </select>
+                  <ngx-select  id="utilisateur" name="utilisateur"
+                               optionValueField="idUtilisateur"
+                               optionTextField="nom"
+                               [items]="listUtilisateurs"
+                               [(ngModel)]="routeur.utilisateur">
+
+                  </ngx-select>
                 </div>
               </div>
             </div>
@@ -61,13 +69,16 @@
               <div class="col-md-8 inputGroupContainer">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="glyphicon glyphicon-date"></i></span>
-                  <input id="garantie" name="garantie" placeholder="Date fin Garantie"  class="form-control"
-                         required="true" value="" type="date"></div>
+                  <input id="fingarantie" name="fingarantie" placeholder="Date fin Garantie"  class="form-control"
+                         required="true" [(ngModel)]="routeur.fingarantie" value="" type="date"></div>
               </div>
             </div>
           </fieldset>
-          <button type="submit" class="btn btn-primary">Enregistrer</button>
-          <button type="reset" class="btn btn-warning">Reset</button>
+          <div style="text-align: center">
+          <button type="submit" (click)="changeSuccessMessage()" class="btn btn-primary" >Enregistrer</button> &nbsp; &nbsp; &nbsp;
+
+          <button type="reset" class="btn btn-warning" >Reset</button>
+        </div>
 
         </form>
       </td>

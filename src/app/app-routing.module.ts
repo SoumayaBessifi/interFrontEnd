@@ -5,6 +5,11 @@ import {AjoutOrdinateurComponent} from './ordinateur/ajout-ordinateur/ajout-ordi
 import {RouteurComponent} from './routeur/routeur.component';
 import {AjoutRouteurComponent} from './routeur/ajout-routeur/ajout-routeur.component';
 import {ImprimanteComponent} from './imprimante/imprimante.component';
+import {ListerRouteurComponent} from './routeur/lister-routeur/lister-routeur.component';
+import {EditRouteurComponent} from './routeur/edit-routeur/edit-routeur.component';
+import {ListerImprimanteComponent} from './imprimante/lister-imprimante/lister-imprimante.component';
+import {AjoutimprimanteComponent} from './imprimante/ajoutimprimante/ajoutimprimante.component';
+import {EditImprimanteComponent} from './imprimante/edit-imprimante/edit-imprimante.component';
 
 const routes: Routes = [
     {
@@ -18,14 +23,38 @@ const routes: Routes = [
     {
       path: 'routeurs',
       component: RouteurComponent,
-    },
-    {
-      path: 'ajoutRouteur',
-      component: AjoutRouteurComponent,
+      children: [
+        {
+          path: 'listeRouteur',
+          component: ListerRouteurComponent
+        },
+        {
+          path: 'ajouterRouteur',
+          component: AjoutRouteurComponent
+        },
+        {
+          path: 'modifier/:id',
+          component: EditRouteurComponent
+        },
+      ]
     },
     {
       path: 'imprimantes',
-      component: ImprimanteComponent
+      component: ImprimanteComponent,
+      children: [
+        {
+          path: 'listeImprimante',
+          component: ListerImprimanteComponent
+        },
+        {
+          path: 'ajouterImprimante',
+          component: AjoutimprimanteComponent
+        },
+        {
+          path: 'modifierImprimante/:id',
+          component: EditImprimanteComponent
+        },
+      ]
     }
   ]
 ;
